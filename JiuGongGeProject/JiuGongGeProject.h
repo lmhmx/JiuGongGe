@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 
 #include <QtWidgets/QMainWindow>
 #include <qmessagebox.h>
 #include <vector>
 #include <qtextedit.h>
-#include <qkeyeventtransition.h>
+//#include <qkeyeventtransition.h>
 #include <qevent.h>
 #include <qtimer.h>
 #include <qfiledialog.h>
@@ -18,10 +18,10 @@
 using namespace std;
 class JiuGongGeProject : public QMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    JiuGongGeProject(QWidget *parent = Q_NULLPTR);
+	JiuGongGeProject(QWidget* parent = Q_NULLPTR);
 	void btnSlot_Genarate();
 	void btnSlot_BeginSearch();
 	void btnSlot_ChooseSize();
@@ -52,7 +52,7 @@ private:
 	void timerSlot();
 
 private:
-	//¿ªÊ¼×Ô¶¯»Ö¸´
+	//ï¿½ï¿½Ê¼ï¿½Ô¶ï¿½ï¿½Ö¸ï¿½
 	void beginAuto();
 	void beginManual();
 
@@ -60,7 +60,7 @@ private:
 	void keyPressEvent(QKeyEvent* keyevent);
 
 private:
-	//Éú³É 0 - n-1ÄÚµÄn¸öÊý£¬¶øÇÒ»¥²»ÏàÍ¬
+	//ï¿½ï¿½ï¿½ï¿½ 0 - n-1ï¿½Úµï¿½nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Í¬
 	vector<int> randomVector(int n);
 
 private:
@@ -79,7 +79,7 @@ private:
 	void editMatQuit();
 
 private:
-    Ui::JiuGongGeProjectClass ui;
+	Ui::JiuGongGeProjectClass ui;
 private:
 	vector<MyDirection> m_Solution;
 	int m_SolutionIndex;

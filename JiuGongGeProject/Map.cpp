@@ -1,4 +1,4 @@
-#include "Map.h"
+ï»¿#include "Map.h"
 using namespace std;
 Map::Map()
 {
@@ -221,8 +221,8 @@ int& Map::Content(int x, int y)
 {
 	return m_Content[x + y * m_Width];
 }
-//½«Í¼ĞÎÅ²Ïò0µÄÎ»ÖÃ
-//Èç¹û³É¹¦ÄÜ¹»Å²¶¯£¬ÄÇÃ´·µ»Ø true£¬·ñÔò·µ»Ø false
+//å°†å›¾å½¢æŒªå‘0çš„ä½ç½®
+//å¦‚æœæˆåŠŸèƒ½å¤ŸæŒªåŠ¨ï¼Œé‚£ä¹ˆè¿”å› trueï¼Œå¦åˆ™è¿”å› false
 bool Map::Move(MyDirection direction)
 {
 	int tmp;

@@ -1,4 +1,6 @@
-#pragma once
+ï»¿# ifndef MAP_H
+# define MAP_H
+
 #include <iostream>
 #include "Common.h"
 #include <iomanip>
@@ -23,8 +25,8 @@ public:
 	vector<int> getContent()const;
 	bool setContent(vector<int> content);
 
-	//½«Í¼ĞÎÅ²Ïò0µÄÎ»ÖÃ
-	//Èç¹û³É¹¦ÄÜ¹»Å²¶¯£¬ÄÇÃ´·µ»Ø true£¬·ñÔò·µ»Ø false
+	//å°†å›¾å½¢æŒªå‘0çš„ä½ç½®
+	//å¦‚æœæˆåŠŸèƒ½å¤ŸæŒªåŠ¨ï¼Œé‚£ä¹ˆè¿”å› trueï¼Œå¦åˆ™è¿”å› false
 	bool Move(MyDirection diretion);
 	MyDirection operator-(const Map& map);
 	int getIndex(int x)const;
@@ -49,3 +51,5 @@ private:
 };
 
 void printMap(Map m);
+
+#endif // !MAP_H

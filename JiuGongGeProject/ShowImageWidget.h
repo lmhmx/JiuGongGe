@@ -16,7 +16,7 @@
 class ShowImageWidget :
 	public QWidget
 {
-	Q_OBJECT
+	//Q_OBJECT
 
 public:
 	ShowImageWidget(QWidget* parent = Q_NULLPTR);
@@ -25,7 +25,7 @@ public:
 	bool Move(MyDirection direction);
 
 	void paintEvent(QPaintEvent*);
-	
+
 	bool showMap();
 
 	bool setMap(Map map);

@@ -7,7 +7,7 @@
 #include "ui_EditMat.h"
 class EditMatWidget:public QWidget
 {
-	Q_OBJECT
+	//Q_OBJECT
 public:
 	EditMatWidget(const Map& map, QWidget* parent = NULL);
 	Ui::EditMatWidget ui;

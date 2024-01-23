@@ -1,5 +1,5 @@
-#include "ShowImageWidget.h"
-ShowImageWidget::ShowImageWidget(QWidget* parent):QWidget(parent)
+ï»¿#include "ShowImageWidget.h"
+ShowImageWidget::ShowImageWidget(QWidget* parent) :QWidget(parent)
 {
 	m_oldH = 3;
 	m_oldW = 3;
@@ -38,7 +38,7 @@ void ShowImageWidget::setMyPicture(const QPixmap& pic)
 	m_Pi = m_Pi.scaled(QSize(w_window, h_window));
 
 	checkPic();
-	
+
 	showMap();
 }
 bool ShowImageWidget::setMap(Map map)
@@ -64,22 +64,20 @@ bool ShowImageWidget::showMap()
 	}
 	int mapW = m_Map.getWidth();
 	int mapH = m_Map.getHeight();
-	
+
 	int labelW = this->width() / mapW;
 	int labelH = this->height() / mapH;
 	bool flag = false;
 
-	if(mapH == m_labelMap.size())
+	if (mapH == m_labelMap.size())
 	{
 		if (mapW == m_labelMap[0].size())
 		{
 			flag = true;
 		}
 	}
-	//´óÐ¡¸Ä±äÁË
 	if (!flag)
 	{
-		//Èç¹û·Ç¿Õ£¬ÏÈÉ¾³ý
 		if (!m_labelMap.empty())
 		{
 			for (int i = 0; i < m_oldH; i++)
@@ -92,7 +90,6 @@ bool ShowImageWidget::showMap()
 			}
 			m_labelMap.clear();
 		}
-		//¿ªÊ¼ÉêÇë¿Õ¼ä
 
 		m_labelMap.resize(mapH);
 		for (int i = 0; i < mapH; i++)
@@ -122,11 +119,11 @@ bool ShowImageWidget::showMap()
 				}
 				QFont font;
 				int fontsize = 26;
-				if (mapH*mapW > 25 && mapH*mapW <= 100)
+				if (mapH * mapW > 25 && mapH * mapW <= 100)
 				{
 					fontsize = 25 * 5 / mapW;
 				}
-				else if (mapH*mapW > 100)
+				else if (mapH * mapW > 100)
 				{
 					fontsize = 18 * 5 / mapW;
 				}
@@ -172,21 +169,21 @@ void ShowImageWidget::checkPic()
 {
 	int mapH = m_Map.getHeight();
 	int mapW = m_Map.getWidth();
-	int labelW = (this->width()-20) / mapW;
-	int labelH = (this->height()-20) / mapH;
-	
+	int labelW = (this->width() - 20) / mapW;
+	int labelH = (this->height() - 20) / mapH;
+
 	if (m_Pictures.size() != mapH * mapW || m_Changed == true)
 	{
-		qDebug() << "resize" << endl;
+		//qDebug() << "resize" << endl;
 		for (int i = 0; i < m_Pictures.size(); i++)
 		{
 			delete m_Pictures[i];
 		}
-		m_Pictures.resize(mapH*mapW);
-		for (int i = 0; i < mapW*mapH; i++)
+		m_Pictures.resize(mapH * mapW);
+		for (int i = 0; i < mapW * mapH; i++)
 		{
 			m_Pictures[i] = new QPixmap();
-			*m_Pictures[i] = m_Pi.copy(i%mapW*labelW, i / mapW * labelH,
+			*m_Pictures[i] = m_Pi.copy(i % mapW * labelW, i / mapW * labelH,
 				labelW, labelH);
 		}
 	}

@@ -1,4 +1,4 @@
-#include "Solution.h"
+ï»¿#include "Solution.h"
 Map Solution::m_FinishMap;
 Solution::Solution()
 {
@@ -70,7 +70,7 @@ int Solution::getMaxTime()
 	return this->m_MaxTimer;
 }
 
-//A Ëã·¨
+//A ç®—æ³•
 vector<MyDirection> Solution::ASearchSolution(const Map& beginMap,
 	const Map& finishMap, bool& succeed)
 {
@@ -108,7 +108,7 @@ vector<MyDirection> Solution::ASearchSolution(const Map& beginMap,
 	{
 		if ((nodeNum - deleteNum) % 5000 == 1)
 		{
-			cout << "ÒÑÉêÇë½Úµã " << nodeNum - deleteNum << endl;
+			cout << "å·²ç”³è¯·èŠ‚ç‚¹ " << nodeNum - deleteNum << endl;
 		}
 		if (open.empty() || succeed == false)
 		{
@@ -202,7 +202,7 @@ vector<MyDirection> Solution::ASearchSolution(const Map& beginMap,
 					nodeNum++;
 					*willKuoZhan = *currentNode;
 				}
-				//²»ÄÜ½øĞĞÀ©Õ¹
+				//ä¸èƒ½è¿›è¡Œæ‰©å±•
 				else
 				{
 					*willKuoZhan = *currentNode;
@@ -228,7 +228,7 @@ vector<MyDirection> Solution::ASearchSolution(const Map& beginMap,
 }
 
 
-//Éî¶ÈÓÅÏÈËÑË÷
+//æ·±åº¦ä¼˜å…ˆæœç´¢
 vector<MyDirection> Solution::deepSearchSolution(const Map& beginMap,
 	const Map& finishMap, bool& succeed)
 {
@@ -266,7 +266,7 @@ vector<MyDirection> Solution::deepSearchSolution(const Map& beginMap,
 	{
 		if ((nodeNum - deleteNum) % 5000 == 1)
 		{
-			cout << "ÒÑÉêÇë½Úµã " << (nodeNum - deleteNum) << endl;
+			cout << "å·²ç”³è¯·èŠ‚ç‚¹ " << (nodeNum - deleteNum) << endl;
 		}
 		if (open.empty() || succeed == false)
 		{
@@ -360,7 +360,7 @@ vector<MyDirection> Solution::deepSearchSolution(const Map& beginMap,
 					nodeNum++;
 					*willKuoZhan = *currentNode;
 				}
-				//²»ÄÜ½øĞĞÀ©Õ¹
+				//ä¸èƒ½è¿›è¡Œæ‰©å±•
 				else
 				{
 					*willKuoZhan = *currentNode;
@@ -385,7 +385,7 @@ vector<MyDirection> Solution::deepSearchSolution(const Map& beginMap,
 	return res;
 }
 
-//¿í¶ÈÓÅÏÈËÑË÷
+//å®½åº¦ä¼˜å…ˆæœç´¢
 vector<MyDirection> Solution::widthSearchSolution(const Map& beginMap,
 	const Map& finishMap, bool& succeed)
 {
@@ -423,7 +423,7 @@ vector<MyDirection> Solution::widthSearchSolution(const Map& beginMap,
 	{
 		if ((nodeNum - deleteNum) % 5000 == 1)
 		{
-			cout << "ÒÑÉêÇë½Úµã " << (nodeNum - deleteNum) << endl;
+			cout << "å·²ç”³è¯·èŠ‚ç‚¹ " << (nodeNum - deleteNum) << endl;
 		}
 		if (open.empty() || succeed == false)
 		{
@@ -517,7 +517,7 @@ vector<MyDirection> Solution::widthSearchSolution(const Map& beginMap,
 					nodeNum++;
 					*willKuoZhan = *currentNode;
 				}
-				//²»ÄÜ½øĞĞÀ©Õ¹
+				//ä¸èƒ½è¿›è¡Œæ‰©å±•
 				else
 				{
 					*willKuoZhan = *currentNode;
@@ -542,7 +542,7 @@ vector<MyDirection> Solution::widthSearchSolution(const Map& beginMap,
 	return res;
 }
 
-//ÍòÄÜ»¹Ô­·½·¨
+//ä¸‡èƒ½è¿˜åŸæ–¹æ³•
 vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 	const Map& finishMap, bool& succeed)
 {
@@ -561,12 +561,12 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 	int Y_Cur;
 	int X_0;
 	int Y_0;
-	//Ç°h-2ĞĞ
+	//å‰h-2è¡Œ
 	for (int Y_T = 0; Y_T < h - 2; Y_T++)
 	{
 		for (int X_T = 0; X_T < w; X_T++)
 		{
-			//Ç°w-1ÁĞ
+			//å‰w-1åˆ—
 			if (X_T < w - 1)
 			{
 				while (1)
@@ -581,23 +581,23 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 						break;
 					}
 
-					//ÏÈ½øĞĞ×óÓÒÒÆ¶¯
-					//Èç¹ûĞèÒªÏòÓÒÒÆ¶¯
+					//å…ˆè¿›è¡Œå·¦å³ç§»åŠ¨
+					//å¦‚æœéœ€è¦å‘å³ç§»åŠ¨
 					if (X_Cur < X_T)
 					{
-						//ÄÜÖ±½ÓÓÒÒÆ
+						//èƒ½ç›´æ¥å³ç§»
 						if (X_Cur == X_0 - 1 && Y_Cur == Y_0)
 						{
 							map_Cur.Move(RIGHT);
 							res.push_back(RIGHT);
 						}
-						//²»ÄÜÖ±½ÓÓÒÒÆ
+						//ä¸èƒ½ç›´æ¥å³ç§»
 						else
 						{
-							//ÏÈ½øĞĞÉÏÏÂÒÆ¶¯
+							//å…ˆè¿›è¡Œä¸Šä¸‹ç§»åŠ¨
 							if (Y_Cur > Y_0)
 							{
-								//Èç¹ûÔÚÕıÉÏ·½Ò»¸ö
+								//å¦‚æœåœ¨æ­£ä¸Šæ–¹ä¸€ä¸ª
 								if (X_Cur == X_0 && Y_Cur == Y_0 + 1)
 								{
 									map_Cur.Move(LEFT);
@@ -607,7 +607,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 									map_Cur.Move(RIGHT);
 									res.push_back(RIGHT);
 								}
-								//Èç¹û²»ÔÚÍ¬Ò»ÁĞ»òÕßÊÇÔÚÍ¬Ò»ÁĞµÄºÜÉÏÃæµÄÊı
+								//å¦‚æœä¸åœ¨åŒä¸€åˆ—æˆ–è€…æ˜¯åœ¨åŒä¸€åˆ—çš„å¾ˆä¸Šé¢çš„æ•°
 								else
 								{
 									map_Cur.Move(UP);
@@ -624,7 +624,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 										res.push_back(DOWN);
 										map_Cur.Move(LEFT);
 										res.push_back(LEFT);
-										//Ê£ÏÂµÄ»á½»¸øÏÂÒ»¸öÑ­»·
+										//å‰©ä¸‹çš„ä¼šäº¤ç»™ä¸‹ä¸€ä¸ªå¾ªç¯
 									}
 									else
 									{
@@ -632,7 +632,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 										res.push_back(UP);
 										map_Cur.Move(LEFT);
 										res.push_back(LEFT);
-										//Ê£ÏÂµÄ»á½»¸øÏÂÒ»¸öÑ­»·
+										//å‰©ä¸‹çš„ä¼šäº¤ç»™ä¸‹ä¸€ä¸ªå¾ªç¯
 									}
 								}
 								else
@@ -668,22 +668,22 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 							}
 						}
 					}
-					//Èç¹ûĞèÒªÏò×óÒÆ¶¯
+					//å¦‚æœéœ€è¦å‘å·¦ç§»åŠ¨
 					else if (X_Cur > X_T)
 					{
-						//ÄÜÖ±½Ó×óÒÆ
+						//èƒ½ç›´æ¥å·¦ç§»
 						if (X_Cur == X_0 + 1 && Y_Cur == Y_0)
 						{
 							map_Cur.Move(LEFT);
 							res.push_back(LEFT);
 						}
-						//²»ÄÜÖ±½Ó×óÒÆ
+						//ä¸èƒ½ç›´æ¥å·¦ç§»
 						else
 						{
-							//ÏÈ½øĞĞÉÏÏÂÒÆ¶¯
+							//å…ˆè¿›è¡Œä¸Šä¸‹ç§»åŠ¨
 							if (Y_Cur > Y_0)
 							{
-								//Èç¹ûÔÚÕıÉÏ·½Ò»¸ö
+								//å¦‚æœåœ¨æ­£ä¸Šæ–¹ä¸€ä¸ª
 								if (X_Cur == X_0 && Y_Cur == Y_0 + 1)
 								{
 									map_Cur.Move(RIGHT);
@@ -693,7 +693,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 									map_Cur.Move(LEFT);
 									res.push_back(LEFT);
 								}
-								//Èç¹û²»ÔÚÍ¬Ò»ÁĞ»òÕßÊÇÔÚÍ¬Ò»ÁĞµÄºÜÉÏÃæµÄÊı
+								//å¦‚æœä¸åœ¨åŒä¸€åˆ—æˆ–è€…æ˜¯åœ¨åŒä¸€åˆ—çš„å¾ˆä¸Šé¢çš„æ•°
 								else
 								{
 									map_Cur.Move(UP);
@@ -710,7 +710,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 										res.push_back(DOWN);
 										map_Cur.Move(RIGHT);
 										res.push_back(RIGHT);
-										//Ê£ÏÂµÄ»á½»¸øÏÂÒ»¸öÑ­»·
+										//å‰©ä¸‹çš„ä¼šäº¤ç»™ä¸‹ä¸€ä¸ªå¾ªç¯
 									}
 									else
 									{
@@ -718,7 +718,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 										res.push_back(UP);
 										map_Cur.Move(RIGHT);
 										res.push_back(RIGHT);
-										//Ê£ÏÂµÄ»á½»¸øÏÂÒ»¸öÑ­»·
+										//å‰©ä¸‹çš„ä¼šäº¤ç»™ä¸‹ä¸€ä¸ªå¾ªç¯
 									}
 								}
 								else
@@ -787,10 +787,10 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 							}
 						}
 					}
-					//Èç¹û²»ĞèÒªºáÏò
+					//å¦‚æœä¸éœ€è¦æ¨ªå‘
 					else // if(X_Cur == X_T)
 					{
-						//ÄÜÖ±½ÓÉÏÒÆ
+						//èƒ½ç›´æ¥ä¸Šç§»
 						if (X_Cur == X_0 && Y_Cur == Y_0 + 1)
 						{
 							map_Cur.Move(UP);
@@ -804,12 +804,12 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 							//res.push_back(DOWN);
 							//res.push_back(RIGHT);
 						}
-						//²»ÄÜÖ±½ÓÉÏÒÆ
+						//ä¸èƒ½ç›´æ¥ä¸Šç§»
 						else
 						{
 							if (Y_Cur < Y_0)
 							{
-								//ÔÚÕıÏÂ·½Ò»¸ö
+								//åœ¨æ­£ä¸‹æ–¹ä¸€ä¸ª
 								if (Y_Cur == Y_0 - 1 && X_Cur == X_0)
 								{
 								
@@ -899,7 +899,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 				}
 				
 			}
-			//×îºóÒ»ÁĞ
+			//æœ€åä¸€åˆ—
 			else//(if(X_T == w-1)
 			{
 				while (1)
@@ -1001,23 +1001,23 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 						break;
 						//******************
 					}
-					//ÏÈ½øĞĞ×óÓÒÒÆ¶¯
-					//Èç¹ûĞèÒªÏòÓÒÒÆ¶¯
+					//å…ˆè¿›è¡Œå·¦å³ç§»åŠ¨
+					//å¦‚æœéœ€è¦å‘å³ç§»åŠ¨
 					if (X_Cur < X_T)
 					{
-						//ÄÜÖ±½ÓÓÒÒÆ
+						//èƒ½ç›´æ¥å³ç§»
 						if (X_Cur == X_0 - 1 && Y_Cur == Y_0)
 						{
 							map_Cur.Move(RIGHT);
 							res.push_back(RIGHT);
 						}
-						//²»ÄÜÖ±½ÓÓÒÒÆ
+						//ä¸èƒ½ç›´æ¥å³ç§»
 						else
 						{
-							//ÏÈ½øĞĞÉÏÏÂÒÆ¶¯
+							//å…ˆè¿›è¡Œä¸Šä¸‹ç§»åŠ¨
 							if (Y_Cur > Y_0)
 							{
-								//Èç¹ûÔÚÕıÉÏ·½Ò»¸ö
+								//å¦‚æœåœ¨æ­£ä¸Šæ–¹ä¸€ä¸ª
 								if (X_Cur == X_0 && Y_Cur == Y_0 + 1)
 								{
 									map_Cur.Move(LEFT);
@@ -1027,7 +1027,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 									map_Cur.Move(RIGHT);
 									res.push_back(RIGHT);
 								}
-								//Èç¹û²»ÔÚÍ¬Ò»ÁĞ»òÕßÊÇÔÚÍ¬Ò»ÁĞµÄºÜÉÏÃæµÄÊı
+								//å¦‚æœä¸åœ¨åŒä¸€åˆ—æˆ–è€…æ˜¯åœ¨åŒä¸€åˆ—çš„å¾ˆä¸Šé¢çš„æ•°
 								else
 								{
 									map_Cur.Move(UP);
@@ -1044,7 +1044,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 										res.push_back(DOWN);
 										map_Cur.Move(LEFT);
 										res.push_back(LEFT);
-										//Ê£ÏÂµÄ»á½»¸øÏÂÒ»¸öÑ­»·
+										//å‰©ä¸‹çš„ä¼šäº¤ç»™ä¸‹ä¸€ä¸ªå¾ªç¯
 									}
 									else
 									{
@@ -1052,7 +1052,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 										res.push_back(UP);
 										map_Cur.Move(LEFT);
 										res.push_back(LEFT);
-										//Ê£ÏÂµÄ»á½»¸øÏÂÒ»¸öÑ­»·
+										//å‰©ä¸‹çš„ä¼šäº¤ç»™ä¸‹ä¸€ä¸ªå¾ªç¯
 									}
 								}
 								else
@@ -1088,21 +1088,21 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 							}
 						}
 					}
-					//Èç¹û²»ĞèÒªºáÏò
+					//å¦‚æœä¸éœ€è¦æ¨ªå‘
 					else // if(X_Cur == X_T)
 					{
-						//ÄÜÖ±½ÓÉÏÒÆ
+						//èƒ½ç›´æ¥ä¸Šç§»
 						if (X_Cur == X_0 && Y_Cur == Y_0 + 1)
 						{
 							map_Cur.Move(UP);
 							res.push_back(UP);
 						}
-						//²»ÄÜÖ±½ÓÉÏÒÆ
+						//ä¸èƒ½ç›´æ¥ä¸Šç§»
 						else
 						{
 							if (Y_Cur < Y_0)
 							{
-								//ÔÚÕıÏÂ·½Ò»¸ö
+								//åœ¨æ­£ä¸‹æ–¹ä¸€ä¸ª
 								if (Y_Cur == Y_0 - 1 && X_Cur == X_0)
 								{
 
@@ -1433,7 +1433,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 				}
 				else
 				{
-					//Èç¹ûÄÜÖ±½Ó×óÒÆ
+					//å¦‚æœèƒ½ç›´æ¥å·¦ç§»
 					if (X_0 == X_b - 1 && Y_0 == Y_b)
 					{
 						res.push_back(LEFT);
@@ -1525,7 +1525,7 @@ vector<MyDirection> Solution::NotSearchSolution(const Map& beginMap,
 	int X_c = map_Cur.getIndex(finishMap.ContentRead(w - 1, h - 2)) % w;
 	int Y_c = map_Cur.getIndex(finishMap.ContentRead(w - 1, h - 2)) / w;
 	
-	//×îºóËÄ¸ö¸ñ
+	//æœ€åå››ä¸ªæ ¼
 	int counter = 0;
 	while (1)
 	{
@@ -1812,10 +1812,10 @@ int Solution::MapNextSolution(int n, int w, int h)
 	int res = 0;
 	int row = n / w;
 	int col = n % w;
-	//±¾ĞĞÊÇÕıÏò
+	//æœ¬è¡Œæ˜¯æ­£å‘
 	if (row % 2 == 0)
 	{
-		//µ½ÁËÒ»ĞĞµÄ×îºóÒ»¸ö
+		//åˆ°äº†ä¸€è¡Œçš„æœ€åä¸€ä¸ª
 		if (col == w - 1)
 		{
 			res = (n + w) % (w*h);
@@ -1825,7 +1825,7 @@ int Solution::MapNextSolution(int n, int w, int h)
 			res = n + 1;
 		}
 	}
-	//±¾ĞĞÎªÄæÏò
+	//æœ¬è¡Œä¸ºé€†å‘
 	else
 	{
 		if (col == 0)
@@ -1886,11 +1886,11 @@ void Node::setParent(Node* parent)
 
 bool Solution::NodeQueueCmp::operator()(Node* a, Node* b)
 {
-	if (A_h(a->map) + A_g(a) < A_h(b->map)+A_g(b))
+	if (A_h(a->map) + A_g(a) > A_h(b->map)+A_g(b))
 	{
-		return false;
+		return true;
 	}
-	return true;
+	return false;
 }
 bool Solution::NodeMapCmp::operator()(Node* a, Node* b)const
 {

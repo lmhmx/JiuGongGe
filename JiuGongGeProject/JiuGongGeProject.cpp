@@ -1,7 +1,7 @@
-#include "JiuGongGeProject.h"
+ï»¿#include "JiuGongGeProject.h"
 using namespace std;
 
-JiuGongGeProject::JiuGongGeProject(QWidget *parent)
+JiuGongGeProject::JiuGongGeProject(QWidget* parent)
 	: QMainWindow(parent)
 {
 	m_ShowTimer = NULL;
@@ -49,11 +49,11 @@ void JiuGongGeProject::setTimeConfirm()
 	if (tmpTime >= 100 && tmpTime <= 300000)
 	{
 		m_MaxTime = tmpTime;
-		QMessageBox::information(0, "succeed",QStringLiteral( "ÉèÖÃ³É¹¦"));
+		QMessageBox::information(0, "succeed", QStringLiteral("è®¾ç½®æˆåŠŸ"));
 	}
 	else
 	{
-		QMessageBox::warning(0, "fail", QStringLiteral("ÉèÖÃÊ§°Ü"));
+		QMessageBox::warning(0, "fail", QStringLiteral("è®¾ç½®å¤±è´¥"));
 	}
 	m_setMaxTimeWidget->deleteLater();
 	m_setMaxTimeWidget = NULL;
@@ -66,7 +66,7 @@ void JiuGongGeProject::setTimeQuit()
 void JiuGongGeProject::btnSlot_ChooseSize()
 {
 	appendInfoString("show window");
-	//Èç¹ûÊÇ×Ô¶¨ÒåÉú³ÉÄ£Ê½
+	//å¦‚æœæ˜¯è‡ªå®šä¹‰ç”Ÿæˆæ¨¡å¼
 	m_setSizeWidget = new SetSizeWidget();
 	m_setSizeWidget->show();
 	m_setSizeWidget->setWindowModality(Qt::WindowModality::WindowModal);
@@ -86,13 +86,13 @@ void JiuGongGeProject::setSizeConfirm()
 {
 	int col = m_setSizeWidget->ui.lineEdit_col->text().toInt();
 	int row = m_setSizeWidget->ui.lineEdit_row->text().toInt();
-	if (row > 2 && row <= 20 && col>2 && col <= 20)
+	if (row > 2 && row <= 20 && col > 2 && col <= 20)
 	{
 		Map m;
 		vector<int> v;
-		for (int i = 0; i < row*col; i++)
+		for (int i = 0; i < row * col; i++)
 		{
-			v.push_back((i + 1) % (row*col));
+			v.push_back((i + 1) % (row * col));
 		}
 		m.initMap(col, row);
 		m.setContent(v);
@@ -101,7 +101,7 @@ void JiuGongGeProject::setSizeConfirm()
 	else
 	{
 		QMessageBox::warning(0, "error",
-			QStringLiteral("ÊäÈëÊı¾İ´Ó3-19"));
+			QStringLiteral("è¾“å…¥æ•°æ®ä»3-19"));
 	}
 	m_setSizeWidget->deleteLater();
 	m_setSizeWidget = NULL;
@@ -109,9 +109,9 @@ void JiuGongGeProject::setSizeConfirm()
 
 void JiuGongGeProject::initMyStatusBar()
 {
-//	m_statusEdit =  new QTextEdit();
-//	this->statusBar()->addWidget(m_statusEdit);
-//	m_statusEdit->setFocusPolicy(Qt::NoFocus);
+	//	m_statusEdit =  new QTextEdit();
+	//	this->statusBar()->addWidget(m_statusEdit);
+	//	m_statusEdit->setFocusPolicy(Qt::NoFocus);
 }
 
 void JiuGongGeProject::appendInfoString(QString s)
@@ -125,7 +125,7 @@ void JiuGongGeProject::initMyUiFace()
 }
 void JiuGongGeProject::btnSlot_SetPicture()
 {
-	QString s = QFileDialog::getOpenFileName(0, 
+	QString s = QFileDialog::getOpenFileName(0,
 		"choose img", "", "Image(*.png *.bmp *.jpg *.jpeg)");
 	QImage img;
 	if (s != "")
@@ -136,7 +136,7 @@ void JiuGongGeProject::btnSlot_SetPicture()
 		}
 		else
 		{
-			
+
 		}
 	}
 }
@@ -175,19 +175,19 @@ void JiuGongGeProject::btnSlot_Begin()
 		{
 			beginAuto();
 		}
-		//ÊÖ¶¯
-		else if(ui.box_chooseAuto->currentIndex() == 2)
+		//æ‰‹åŠ¨
+		else if (ui.box_chooseAuto->currentIndex() == 2)
 		{
 			QMessageBox msg;
 			msg.setWindowTitle("warning");
-			msg.setText(QStringLiteral("ÒÑ¾­Íê³ÉËÑË÷£¬Ñ¡ÔñÊÖ¶¯»¹Ô­½«»áÉ¾³ıËÑË÷½á¹û£¬ÇëÑ¡Ôñ"));
-			QPushButton* manualbtn = 
-				msg.addButton(QStringLiteral("¼ÌĞøÊÖ¶¯"),
+			msg.setText(QStringLiteral("å·²ç»å®Œæˆæœç´¢ï¼Œé€‰æ‹©æ‰‹åŠ¨è¿˜åŸå°†ä¼šåˆ é™¤æœç´¢ç»“æœï¼Œè¯·é€‰æ‹©"));
+			QPushButton* manualbtn =
+				msg.addButton(QStringLiteral("ç»§ç»­æ‰‹åŠ¨"),
 					QMessageBox::ActionRole);
 			QPushButton* autobtn =
-				msg.addButton(QStringLiteral("½øĞĞ×Ô¶¯»¹Ô­"),
+				msg.addButton(QStringLiteral("è¿›è¡Œè‡ªåŠ¨è¿˜åŸ"),
 					QMessageBox::ActionRole);
-			QPushButton* quitbtn = msg.addButton(QStringLiteral("È¡Ïû"),
+			QPushButton* quitbtn = msg.addButton(QStringLiteral("å–æ¶ˆ"),
 				QMessageBox::ActionRole);
 			msg.exec();
 			if (msg.clickedButton() == manualbtn)
@@ -203,15 +203,15 @@ void JiuGongGeProject::btnSlot_Begin()
 				//do nothing
 			}
 		}
-		//Î´Ñ¡Ôñ
+		//æœªé€‰æ‹©
 		else if (ui.box_chooseAuto->currentIndex() == 0)
 		{
-			QMessageBox::warning(0, "warning", QStringLiteral("ÇëÑ¡Ôñ¿ªÊ¼Ä£Ê½"));
+			QMessageBox::warning(0, "warning", QStringLiteral("è¯·é€‰æ‹©å¼€å§‹æ¨¡å¼"));
 		}
 	}
 	else if (m_state == NOTSTART)
 	{
-		if (ui.box_chooseAuto->currentIndex() == 2)//ÊÖ¶¯Ä£Ê½
+		if (ui.box_chooseAuto->currentIndex() == 2)//æ‰‹åŠ¨æ¨¡å¼
 		{
 			appendInfoString("begin manual");
 			beginManual();
@@ -219,7 +219,7 @@ void JiuGongGeProject::btnSlot_Begin()
 		else
 		{
 			QMessageBox::warning(0, "warning",
-				QStringLiteral("Çë½øĞĞËÑË÷»òÕßÑ¡ÔñÊÖ¶¯Ä£Ê½"));
+				QStringLiteral("è¯·è¿›è¡Œæœç´¢æˆ–è€…é€‰æ‹©æ‰‹åŠ¨æ¨¡å¼"));
 		}
 	}
 	else
@@ -280,8 +280,8 @@ void JiuGongGeProject::beginAuto()
 	ui.button_end->show();
 	ui.button_generate->setEnabled(false);
 	ui.button_stop->show();
-	ui.button_stop->setText(QStringLiteral("ÔİÍ£"));
-	ui.button_end->setText(QStringLiteral("ÖÕÖ¹"));
+	ui.button_stop->setText(QStringLiteral("æš‚åœ"));
+	ui.button_end->setText(QStringLiteral("ç»ˆæ­¢"));
 
 	ui.label_time->show();
 	if (m_ShowTimer != NULL)
@@ -300,7 +300,7 @@ void JiuGongGeProject::chooseMatSlot_Change()
 {
 	switch (ui.box_chooseMat->currentIndex())
 	{
-	case 0://µ±Ç°ÅÅÁĞ
+	case 0://å½“å‰æ’åˆ—
 	{
 		ui.box_chooseAuto->setEnabled(true);
 		ui.box_search->setEnabled(true);
@@ -317,7 +317,7 @@ void JiuGongGeProject::chooseMatSlot_Change()
 		ui.label_time->hide();
 		break;
 	}
-	case 1://Ëæ»úÉú³É
+	case 1://éšæœºç”Ÿæˆ
 	{
 		ui.box_chooseAuto->setEnabled(true);
 		ui.box_search->setEnabled(true);
@@ -333,7 +333,7 @@ void JiuGongGeProject::chooseMatSlot_Change()
 		ui.label_time->hide();
 		break;
 	}
-	case 2://×Ô¶¨ÒåÉú³É
+	case 2://è‡ªå®šä¹‰ç”Ÿæˆ
 	{
 		ui.box_chooseAuto->setEnabled(true);
 		ui.box_search->setEnabled(true);
@@ -369,7 +369,7 @@ void JiuGongGeProject::chooseMatSlot_Change()
 		ui.button_stop->hide();
 
 		ui.label_time->hide();
-		appendInfoString(QStringLiteral("Éú³ÉµÚÒ»¹Ø"));
+		appendInfoString(QStringLiteral("ç”Ÿæˆç¬¬ä¸€å…³"));
 		break;
 	}
 	case 4:
@@ -393,10 +393,10 @@ void JiuGongGeProject::chooseMatSlot_Change()
 		ui.button_stop->hide();
 
 		ui.label_time->hide();
-		appendInfoString(QStringLiteral("Éú³ÉµÚ¶ş¹Ø"));
+		appendInfoString(QStringLiteral("ç”Ÿæˆç¬¬äºŒå…³"));
 		break;
 	}
-	default://ÆäËû¹Ø¿¨
+	default://å…¶ä»–å…³å¡
 	{
 		ui.box_chooseAuto->setEnabled(true);
 		ui.box_search->setEnabled(true);
@@ -408,7 +408,7 @@ void JiuGongGeProject::chooseMatSlot_Change()
 		vector<int> content = { 4,1,3,2,5,7,6,0,8 };
 		map.initMap(3, 3);
 		map.setContent(content);
-		
+
 		ui.widget_ShowImage->setMap(map);
 
 		ui.button_end->hide();
@@ -416,7 +416,7 @@ void JiuGongGeProject::chooseMatSlot_Change()
 		ui.button_stop->hide();
 
 		ui.label_time->hide();
-		appendInfoString(QStringLiteral("Éú³ÉµÚÒ»¹Ø"));
+		appendInfoString(QStringLiteral("ç”Ÿæˆç¬¬ä¸€å…³"));
 		break;
 	}
 	}
@@ -424,10 +424,10 @@ void JiuGongGeProject::chooseMatSlot_Change()
 
 void JiuGongGeProject::btnSlot_BeginSearch()
 {
-	//Î´Ñ¡ÔñËÑË÷Ä£Ê½
+	//æœªé€‰æ‹©æœç´¢æ¨¡å¼
 	if (ui.box_search->currentIndex() == 0)
 	{
-		QMessageBox::warning(0, "warning", QStringLiteral("ÇëÑ¡ÔñËÑË÷Ä£Ê½"));
+		QMessageBox::warning(0, "warning", QStringLiteral("è¯·é€‰æ‹©æœç´¢æ¨¡å¼"));
 		return;
 	}
 	else
@@ -442,18 +442,18 @@ void JiuGongGeProject::btnSlot_BeginSearch()
 		SearchType searchType;
 		int ctrl = 0;
 		bool timeOrSpaceOut;
-		for (int i = 0; i < w*h - 1; i++)
+		for (int i = 0; i < w * h - 1; i++)
 		{
-			content[i] = (i + 1) % (w*h);
+			content[i] = (i + 1) % (w * h);
 		}
 
 		finalMap.setContent(content);
-		//A ËÑË÷
+		//A æœç´¢
 		if (ui.box_search->currentIndex() == 1)
 		{
 			searchType = ASEARCH;
 		}
-		//Éî¶ÈËÑË÷
+		//æ·±åº¦æœç´¢
 		else if (ui.box_search->currentIndex() == 2)
 		{
 			searchType = DEEPSEARCH;
@@ -466,12 +466,12 @@ void JiuGongGeProject::btnSlot_BeginSearch()
 		{
 			searchType = PROGRAMSEARCH;
 		}
-		appendInfoString(QStringLiteral("¼´½«ËÑË÷"));
+		appendInfoString(QStringLiteral("å³å°†æœç´¢"));
 		m_Solution = s.getSolution(ui.widget_ShowImage->getMap(), finalMap,
 			succeed, searchType, 0, timeOrSpaceOut);
-		appendInfoString(QStringLiteral("ËÑË÷Íê³É"));
+		appendInfoString(QStringLiteral("æœç´¢å®Œæˆ"));
 		m_SolutionIndex = 0;
-		//Èç¹ûÊ§°ÜÁË
+		//å¦‚æœå¤±è´¥äº†
 		if (!succeed)
 		{
 			if (timeOrSpaceOut == false)
@@ -480,32 +480,32 @@ void JiuGongGeProject::btnSlot_BeginSearch()
 					succeed, searchType, 1, timeOrSpaceOut);
 				m_SolutionIndex = 0;
 			}
-			//Èç¹û³É¹¦ÁË
+			//å¦‚æœæˆåŠŸäº†
 			if (succeed)
 			{
 				QMessageBox::StandardButton buttonResult;
 				buttonResult = QMessageBox::information(0, "info",
-					QStringLiteral("ÕÒµ½ÁËÒ»¸ö³¤¶ÈÎª") +
-					QString::number(m_Solution.size())+
-					QStringLiteral("µÄ·´Ïò½á¹û·½·¨"));
+					QStringLiteral("æ‰¾åˆ°äº†ä¸€ä¸ªé•¿åº¦ä¸º") +
+					QString::number(m_Solution.size()) +
+					QStringLiteral("çš„åå‘ç»“æœæ–¹æ³•"));
 				m_state = SEARCHOVER;
 				appendInfoString("find a reverse path " +
 					QString::number(m_Solution.size()) + "length");
 			}
-			//Èç¹ûÈÔÈ»Ê§°ÜÁË
+			//å¦‚æœä»ç„¶å¤±è´¥äº†
 			else
 			{
 				QMessageBox::warning(0, "warning",
-					QStringLiteral("´ËÖÖËÑË÷·½Ê½ÕÒ²»µ½½á¹û£¬¿ÉÄÜÊÇËÑË÷·¶Î§Ì«´ó£¬Çë³¢ÊÔÆäËû·½·¨"));
+					QStringLiteral("æ­¤ç§æœç´¢æ–¹å¼æ‰¾ä¸åˆ°ç»“æœï¼Œå¯èƒ½æ˜¯æœç´¢èŒƒå›´å¤ªå¤§ï¼Œè¯·å°è¯•å…¶ä»–æ–¹æ³•"));
 				return;
 			}
 		}
 		else
 		{
-			QString s = QString(QStringLiteral("ÕÒµ½Ò»Ìõ³¤¶ÈÎª")) +
+			QString s = QString(QStringLiteral("æ‰¾åˆ°ä¸€æ¡é•¿åº¦ä¸º")) +
 				QString::number(m_Solution.size()) +
-				QString(QStringLiteral("µÄÂ·¾¶"));
-			QMessageBox::information(0, QStringLiteral("ËÑË÷³É¹¦"),s);
+				QString(QStringLiteral("çš„è·¯å¾„"));
+			QMessageBox::information(0, QStringLiteral("æœç´¢æˆåŠŸ"), s);
 			appendInfoString("find a path " +
 				QString::number(m_Solution.size()) + "length");
 			m_state = SEARCHOVER;
@@ -516,34 +516,34 @@ void JiuGongGeProject::btnSlot_BeginSearch()
 
 void JiuGongGeProject::initBoxChooseMat()
 {
-	ui.box_chooseMat->addItem(QStringLiteral("µ±Ç°ÕóÁĞ"));
-	ui.box_chooseMat->addItem(QStringLiteral("Ëæ»úÉú³É"));
-	ui.box_chooseMat->addItem(QStringLiteral("×Ô¶¨ÒåÉú³É"));
-	ui.box_chooseMat->addItem(QStringLiteral("µÚÒ»¹Ø"));
-	ui.box_chooseMat->addItem(QStringLiteral("µÚ¶ş¹Ø"));
+	ui.box_chooseMat->addItem(QStringLiteral("å½“å‰é˜µåˆ—"));
+	ui.box_chooseMat->addItem(QStringLiteral("éšæœºç”Ÿæˆ"));
+	ui.box_chooseMat->addItem(QStringLiteral("è‡ªå®šä¹‰ç”Ÿæˆ"));
+	ui.box_chooseMat->addItem(QStringLiteral("ç¬¬ä¸€å…³"));
+	ui.box_chooseMat->addItem(QStringLiteral("ç¬¬äºŒå…³"));
 	ui.box_chooseMat->setCurrentIndex(1);
 }
 
 void JiuGongGeProject::btnSlot_Stop()
 {
-	if (m_state == STOPAUTO)//Èç¹ûÕıÔÚÔİÍ££¬ÄÇÃ´¼ÌĞø¿ªÊ¼
+	if (m_state == STOPAUTO)//å¦‚æœæ­£åœ¨æš‚åœï¼Œé‚£ä¹ˆç»§ç»­å¼€å§‹
 	{
-		ui.button_stop->setText(QStringLiteral("ÔİÍ£"));
+		ui.button_stop->setText(QStringLiteral("æš‚åœ"));
 		m_state = ALLOWAUTO;
 	}
 	else if (m_state == ALLOWAUTO)
 	{
-		ui.button_stop->setText(QStringLiteral("µã»÷¼ÌĞø"));
+		ui.button_stop->setText(QStringLiteral("ç‚¹å‡»ç»§ç»­"));
 		m_state = STOPAUTO;
 	}
 	else if (m_state == STOPMANUAL)
 	{
-		ui.button_stop->setText(QStringLiteral("ÔİÍ£"));
+		ui.button_stop->setText(QStringLiteral("æš‚åœ"));
 		m_state = ALLOWMANUAL;
 	}
 	else if (m_state == ALLOWMANUAL)
 	{
-		ui.button_stop->setText(QStringLiteral("µã»÷¼ÌĞø"));
+		ui.button_stop->setText(QStringLiteral("ç‚¹å‡»ç»§ç»­"));
 		m_state = STOPMANUAL;
 	}
 	else
@@ -555,22 +555,22 @@ void JiuGongGeProject::btnSlot_Stop()
 void JiuGongGeProject::timerSlot()
 {
 	appendInfoString("time slot");
-	if (m_state == ALLOWAUTO)	//ÕıÔÚ×Ô¶¯»¹Ô­
+	if (m_state == ALLOWAUTO)	//æ­£åœ¨è‡ªåŠ¨è¿˜åŸ
 	{
 		if (m_SolutionIndex < m_Solution.size())
 		{
 			appendInfoString(QString::number(m_Solution[m_SolutionIndex]));
 			ui.widget_ShowImage->Move(m_Solution[m_SolutionIndex]);
 			m_SolutionIndex++;
-			ui.label_time->setText(QStringLiteral("»¹ÓĞ") +
-				QString::number(m_Solution.size() - m_SolutionIndex) 
-				+ QStringLiteral("²½ ") + QStringLiteral("F1¼ÓËÙ F2¼õËÙ µ±Ç°ËÙ¶È¼¶±ğ ")+
-			QString::number(21 - m_MoveTime/100));
+			ui.label_time->setText(QStringLiteral("è¿˜æœ‰") +
+				QString::number(m_Solution.size() - m_SolutionIndex)
+				+ QStringLiteral("æ­¥ ") + QStringLiteral("F1åŠ é€Ÿ F2å‡é€Ÿ å½“å‰é€Ÿåº¦çº§åˆ« ") +
+				QString::number(21 - m_MoveTime / 100));
 			QTimer::singleShot(m_MoveTime, this, &JiuGongGeProject::timerSlot);
 		}
 		else
 		{
-			QMessageBox::information(0, "info", QStringLiteral("ÒÆ¶¯Íê³É"));
+			QMessageBox::information(0, "info", QStringLiteral("ç§»åŠ¨å®Œæˆ"));
 			m_state = NOTSTART;
 			ui.box_chooseAuto->setEnabled(true);
 			ui.box_chooseMat->setEnabled(true);
@@ -589,9 +589,9 @@ void JiuGongGeProject::timerSlot()
 	else if (m_state == ALLOWMANUAL)
 	{
 		m_ManualTime++;
-		ui.label_time->setText(QStringLiteral("ÒÑÓÃÊ±") +
+		ui.label_time->setText(QStringLiteral("å·²ç”¨æ—¶") +
 			QString::number(m_ManualTime)
-			+ QStringLiteral("Ãë"));
+			+ QStringLiteral("ç§’"));
 		appendInfoString(QString::number(m_ManualTime));
 	}
 }
@@ -631,12 +631,12 @@ void JiuGongGeProject::keyPressEvent(QKeyEvent* keyevent)
 		{
 		case Qt::Key_F1:
 		{
-			m_MoveTime = (m_MoveTime - 100 > 50)?(m_MoveTime-100):100;
+			m_MoveTime = (m_MoveTime - 100 > 50) ? (m_MoveTime - 100) : 100;
 			break;
 		}
 		case Qt::Key_F2:
 		{
-			m_MoveTime = (m_MoveTime + 100<2050) ? (m_MoveTime + 100) : 2000;
+			m_MoveTime = (m_MoveTime + 100 < 2050) ? (m_MoveTime + 100) : 2000;
 			break;
 		}
 		default:
@@ -651,7 +651,7 @@ void JiuGongGeProject::btnSlot_End()
 	ui.button_stop->hide();
 	ui.button_begin->show();
 
-	ui.button_begin->setText(QStringLiteral("¿ªÊ¼"));
+	ui.button_begin->setText(QStringLiteral("å¼€å§‹"));
 	ui.box_chooseAuto->setEnabled(true);
 	ui.button_beginSearch->setEnabled(true);
 	ui.box_search->setEnabled(true);
@@ -667,20 +667,20 @@ void JiuGongGeProject::btnSlot_Genarate()
 {
 	switch (ui.box_chooseMat->currentIndex())
 	{
-	case 0:   //Î´Ñ¡ÔñÉú³É·½Ê½£¬²»ÄÜ³öÏÖ
+	case 0:   //æœªé€‰æ‹©ç”Ÿæˆæ–¹å¼ï¼Œä¸èƒ½å‡ºç°
 	{
 		QMessageBox::warning(NULL, "warning",
-			QStringLiteral("·¢Éú´íÎó"));
+			QStringLiteral("å‘ç”Ÿé”™è¯¯"));
 		break;
 	}
-	case 1:    //Ëæ»úÉú³É£¬°´ÕÕµ±Ç°µÄµØÍ¼´óĞ¡½øĞĞÉú³É
+	case 1:    //éšæœºç”Ÿæˆï¼ŒæŒ‰ç…§å½“å‰çš„åœ°å›¾å¤§å°è¿›è¡Œç”Ÿæˆ
 	{
 		Map m;
 		int h = ui.widget_ShowImage->getMapHeight();
 		int w = ui.widget_ShowImage->getMapWidth();
 		m.initMap(w, h);
-		vector<int> content = randomVector(w*h);
-		for (int i = 0; i < w*h; i++)
+		vector<int> content = randomVector(w * h);
+		for (int i = 0; i < w * h; i++)
 		{
 			appendInfoString(QString::number(content[i]));
 		}
@@ -707,15 +707,15 @@ void JiuGongGeProject::btnSlot_Genarate()
 	}
 	case 2:
 	{
-		//×Ô¶¨ÒåÉú³É£¬²»ÄÜ³öÏÖ
+		//è‡ªå®šä¹‰ç”Ÿæˆï¼Œä¸èƒ½å‡ºç°
 		QMessageBox::warning(NULL, "warning",
-			QStringLiteral("·¢Éú´íÎó"));
+			QStringLiteral("å‘ç”Ÿé”™è¯¯"));
 		break;
 	}
-	default:  //Í¨¹ıÔØÈë¹Ø¿¨Éú³É£¬²»ÄÜ³öÏÖ
+	default:  //é€šè¿‡è½½å…¥å…³å¡ç”Ÿæˆï¼Œä¸èƒ½å‡ºç°
 	{
 		QMessageBox::warning(NULL, "warning",
-			QStringLiteral("·¢Éú´íÎó"));
+			QStringLiteral("å‘ç”Ÿé”™è¯¯"));
 		break;
 	}
 	}
@@ -734,7 +734,7 @@ void JiuGongGeProject::btnSlot_EditMat()
 	}
 	else
 	{
-		QMessageBox::warning(0, "warning", QStringLiteral("ÇëÑ¡Ôñ×Ô¶¨ÒåÄ£Ê½"));
+		QMessageBox::warning(0, "warning", QStringLiteral("è¯·é€‰æ‹©è‡ªå®šä¹‰æ¨¡å¼"));
 	}
 }
 void JiuGongGeProject::editMatConfirm()
@@ -743,11 +743,11 @@ void JiuGongGeProject::editMatConfirm()
 	int w = ui.widget_ShowImage->getMapWidth();
 	int h = ui.widget_ShowImage->getMapHeight();
 	map.initMap(w, h);
-		
-	vector<int> content(w*h);
-	for (int i = 0; i < w*h; i++)
+
+	vector<int> content(w * h);
+	for (int i = 0; i < w * h; i++)
 	{
-		content[i]=m_EditMatWidget->m_LineEdit[i / w][i%w]->text().toInt();
+		content[i] = m_EditMatWidget->m_LineEdit[i / w][i % w]->text().toInt();
 	}
 	if (map.setContent(content) == true)
 	{
@@ -768,18 +768,18 @@ void JiuGongGeProject::editMatQuit()
 }
 void JiuGongGeProject::initBoxChooseSearch()
 {
-	ui.box_search->addItem(QStringLiteral("ËÑË÷Ä£Ê½"));
-	ui.box_search->addItem(QStringLiteral("AËÑË÷"));
-	ui.box_search->addItem(QStringLiteral("Éî¶ÈÓÅÏÈ"));
-	ui.box_search->addItem(QStringLiteral("¹ã¶ÈÓÅÏÈ"));
-	ui.box_search->addItem(QStringLiteral("ÍòÄÜ»¹Ô­·½·¨"));
+	ui.box_search->addItem(QStringLiteral("æœç´¢æ¨¡å¼"));
+	ui.box_search->addItem(QStringLiteral("Aæœç´¢"));
+	ui.box_search->addItem(QStringLiteral("æ·±åº¦ä¼˜å…ˆ"));
+	ui.box_search->addItem(QStringLiteral("å¹¿åº¦ä¼˜å…ˆ"));
+	ui.box_search->addItem(QStringLiteral("ä¸‡èƒ½è¿˜åŸæ–¹æ³•"));
 	ui.box_search->setCurrentIndex(1);
 }
 void JiuGongGeProject::initBoxChooseAuto()
 {
-	ui.box_chooseAuto->addItem(QStringLiteral("Ñ¡Ôñ×Ô¶¯Ä£Ê½"));
-	ui.box_chooseAuto->addItem(QStringLiteral("×Ô¶¯Ä£Ê½"));
-	ui.box_chooseAuto->addItem(QStringLiteral("ÊÖ¶¯Ä£Ê½"));
+	ui.box_chooseAuto->addItem(QStringLiteral("é€‰æ‹©è‡ªåŠ¨æ¨¡å¼"));
+	ui.box_chooseAuto->addItem(QStringLiteral("è‡ªåŠ¨æ¨¡å¼"));
+	ui.box_chooseAuto->addItem(QStringLiteral("æ‰‹åŠ¨æ¨¡å¼"));
 	ui.box_chooseAuto->setCurrentIndex(1);
 }
 vector<int> JiuGongGeProject::randomVector(int n)

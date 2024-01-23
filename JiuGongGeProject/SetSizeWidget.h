@@ -3,7 +3,7 @@
 #include <qwidget.h>
 class SetSizeWidget:public QWidget
 {
-	Q_OBJECT
+	//Q_OBJECT
 public:
 	SetSizeWidget(QWidget* parent = NULL);
 	Ui::SetSizeWidget ui;

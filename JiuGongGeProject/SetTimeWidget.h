@@ -4,7 +4,7 @@
 class SetTimeWidget :
 	public QDialog
 {
-	Q_OBJECT
+	//Q_OBJECT
 public:
 	SetTimeWidget(QDialog* parent = NULL);
 	Ui::SetTimeWidget ui;

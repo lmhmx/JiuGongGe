@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Common.h"
 #include "Map.h"
 #include <time.h>
@@ -26,11 +26,11 @@ private:
 class Solution
 {
 public:
-	//´«½øÀ´µÄ²ÎÊıÎª¿ªÊ¼×´Ì¬£¬½áÊø×´Ì¬£¬succeed ÊÇÄÜ²»ÄÜÕÒµ½×îÖÕ´ğ°¸£¬
-	//Èç¹û²»ÄÜÕÒµ½£¬·µ»Øfalse
-	//ÓÉÓÚ´æÔÚ×îÖÕµÄÁ½ÖÖ×´Ì¬£¬ctrlÎª0±íÊ¾Ç¿ÖÆÒªÇó×îÖÕ½á¹û×îÖÕÍêÈ«·ûºÏ
-	//ctrlÎª1£¬ÄÇÃ´¾ÍËã²»³É¹¦£¬·µ»ØÒ»¸ö×óÏÂ½ÇµÄÁ½¸öÓë×îÖÕÏà·´µÄÂ·¾¶
-	//timeOrSpaceOut ÊÇËÑË÷Ê§°ÜµÄÔ­Òò
+	//ä¼ è¿›æ¥çš„å‚æ•°ä¸ºå¼€å§‹çŠ¶æ€ï¼Œç»“æŸçŠ¶æ€ï¼Œsucceed æ˜¯èƒ½ä¸èƒ½æ‰¾åˆ°æœ€ç»ˆç­”æ¡ˆï¼Œ
+	//å¦‚æœä¸èƒ½æ‰¾åˆ°ï¼Œè¿”å›false
+	//ç”±äºå­˜åœ¨æœ€ç»ˆçš„ä¸¤ç§çŠ¶æ€ï¼Œctrlä¸º0è¡¨ç¤ºå¼ºåˆ¶è¦æ±‚æœ€ç»ˆç»“æœæœ€ç»ˆå®Œå…¨ç¬¦åˆ
+	//ctrlä¸º1ï¼Œé‚£ä¹ˆå°±ç®—ä¸æˆåŠŸï¼Œè¿”å›ä¸€ä¸ªå·¦ä¸‹è§’çš„ä¸¤ä¸ªä¸æœ€ç»ˆç›¸åçš„è·¯å¾„
+	//timeOrSpaceOut æ˜¯æœç´¢å¤±è´¥çš„åŸå› 
 	Solution();
 	vector<MyDirection> getSolution(const Map& beginMap, const Map& finishMap, 
 		bool& succeed, SearchType searchType, int ctrl, bool& timeOrSpaceOut);
@@ -56,7 +56,7 @@ private:
 	static int A_g(Node* node);
 	static int A_h(const Map& currentMap,
 		const Map& finishMap = m_FinishMap);
-	//Èç¹ûindex1Ğ¡ÓÚindex2£¬ÄÇÃ´·µ»Ø-1£¬ÏàµÈ·µ»Ø0£¬´óÓÚ·µ»Ø1
+	//å¦‚æœindex1å°äºindex2ï¼Œé‚£ä¹ˆè¿”å›-1ï¼Œç›¸ç­‰è¿”å›0ï¼Œå¤§äºè¿”å›1
 	static int CmpIndex(int index1, int index2,int w, int h);
 
 

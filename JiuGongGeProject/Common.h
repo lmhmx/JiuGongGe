@@ -1,4 +1,5 @@
-#pragma once
+﻿# ifndef COMMON_H
+# define COMMON_H
 #include <iostream>
 #include <vector>
 #include <list>
@@ -17,16 +18,18 @@ enum SearchType
 enum JIUGONGGESTATE
 {
 
-	//δ��ʼ
+	//未开始
 	NOTSTART,
-	//�ո��������
+	//刚刚搜索完成
 	SEARCHOVER,
-	//�����ֶ��ָ�
+	//正在手动恢复
 	ALLOWMANUAL,
-	//�����Զ�����
+	//正在自动生成
 	ALLOWAUTO,
-	//�Զ�״̬�µ�ֹͣ״̬
+	//自动状态下的停止状态
 	STOPAUTO,
-	//�ֶ�״̬�µ�ֹͣ״̬
+	//手动状态下的停止状态
 	STOPMANUAL
 };
+
+# endif
